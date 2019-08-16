@@ -10,7 +10,6 @@ import SearchField from './common/SearchField';
 import { Route, Switch as RouterSwitch } from 'react-router-dom';
 import AppPopoverContainer from '../containers/AppPopoverContainer';
 import BackButton from './BackButton';
-import SortList from './SortList';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DetailsAction from './DetailsAction';
@@ -69,7 +68,6 @@ class TopBar extends React.Component {
     const { classes, categories, activeTag, fetchDataRequest, searchRequest } = this.props;
     const categoryList = <CategoryList list={categories} onSelect={fetchDataRequest} lang={lang} />;
     const searchField = <SearchField onSearch={searchRequest} placeholder={text.topBar.searchPlaceholder} />;
-    const sortList = <SortList text={text} />;
     return (
       <HideOnScroll>
         <AppBar
@@ -107,11 +105,6 @@ class TopBar extends React.Component {
 
             <div className={classes.alignRight}>
               <RouterSwitch>
-                <Route path={'/'} exact render={() => sortList} />
-                <Route path={'/feed/'} render={() => sortList} />
-                <Route path={'/feed/:category'} render={() => sortList} />
-                <Route path={'/bookmarks'} render={() => null} />
-                <Route path={'/tags/:tag'} render={() => null} />
                 <Route path={'/details/:id'} component={DetailsAction} />
               </RouterSwitch>
               <RouterSwitch>
