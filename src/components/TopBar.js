@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'
 import CategoryList from './CategoryList';
-import SearchField from './common/SearchField';
+import LazySearchField from './common/LazySearchField';
 import { Route, Switch as RouterSwitch } from 'react-router-dom';
 import AppPopoverContainer from '../containers/AppPopoverContainer';
 import BackButton from './BackButton';
@@ -67,7 +67,7 @@ class TopBar extends React.Component {
     const { drawerOpen, text, lang } = this.props.ui;
     const { classes, categories, activeTag, fetchDataRequest, searchRequest } = this.props;
     const categoryList = <CategoryList list={categories} onSelect={fetchDataRequest} lang={lang} />;
-    const searchField = <SearchField onSearch={searchRequest} placeholder={text.topBar.searchPlaceholder} />;
+    const searchField = <LazySearchField onSearch={searchRequest} placeholder={text.topBar.searchPlaceholder} />;
     return (
       <HideOnScroll>
         <AppBar

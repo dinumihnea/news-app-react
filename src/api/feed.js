@@ -22,7 +22,7 @@ class FeedApi {
 
     static searchNews = (query) => {
         if (query) {
-            return fetch(`${API_LINK}/search/${query}`, getApiDefaultFields())
+            return fetch(`${API_LINK}/news/search?q=${query}`, getApiDefaultFields())
         }
         return fetch(`${API_LINK}/news`, getApiDefaultFields())
     };

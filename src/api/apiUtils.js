@@ -5,7 +5,7 @@ export const API_LINK = `http://localhost:8080/api/v1`;
 export const getApiDefaultFields = () => {
   return {
     headers: {
-      'x-auth-token': Ui.getFromStorage('x-auth-key', null),
+      'x-auth-token': Ui.getFromStorage('x-auth-token', null),
       'content-language': Ui.getFromStorage('news-app-ui-language', 'en')
     }
   }

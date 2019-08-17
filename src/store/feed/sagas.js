@@ -1,4 +1,4 @@
-import { put, takeEvery, takeLatest, throttle } from 'redux-saga/effects'
+import { put, takeEvery, takeLatest } from 'redux-saga/effects'
 import FeedApi from '../../api/feed'
 import {
   FEED_FETCH_BOOKMARKS_REQUEST,
@@ -58,7 +58,7 @@ function* searchApiData(action) {
 }
 
 export function* watchSearchData() {
-  yield throttle(500, FEED_SEARCH_REQUEST, searchApiData)
+  yield takeEvery(FEED_SEARCH_REQUEST, searchApiData)
 }
 
 // Categories
